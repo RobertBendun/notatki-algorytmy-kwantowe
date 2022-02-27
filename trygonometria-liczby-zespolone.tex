@@ -1,23 +1,68 @@
-\documentclass[a5paper,10pt]{article}
-\usepackage{pl}
-\usepackage[margin=1cm]{geometry}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage[utf8]{inputenc}
-\usepackage{polski}
+\documentclass[a5paper,8pt]{extarticle}
 
-\title{Trygonometria i liczby zespolone \\
-  \large Algorytmy kwantowe}
+\usepackage[margin=0.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{gensymb}
+\usepackage{polski}
+\usepackage{multirow}
+
+\title{Trygonometria i liczby zespolone \\ \large Algorytmy kwantowe}
 \date{2021-02-27}
 \author{Robert Bendun}
 
 \newcommand{\mi}{\mathrm{i}}
+
+\renewcommand{\arraystretch}{1.5}
 
 \begin{document}
 
 \maketitle
 
 \section{Trygonometria}
+
+\subsection{Wartości}
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c| } \hline
+	$\alpha$ (deg) & $0\degree$ & $30\degree$ & $45\degree$ & $60\degree$ & $90\degree$ \\ \hline
+	$\alpha$ (rad) & $0$ & $\frac{\pi}{6}$ & $\frac{\pi}{4}$ & $\frac{\pi}{3}$ & $\frac{\pi}{2}$ \\ \hline
+	$\sin$ & $0$ & $\frac{1}{2}$ & $\frac{\sqrt{2}}{2}$ & $\frac{\sqrt{3}}{2}$ & $1$ \\  \hline
+	$\cos$ & $1$ & $\frac{\sqrt{3}}{2}$ & $\frac{\sqrt{2}}{2}$ & $\frac{1}{2}$ & $0$ \\ \hline
+\end{tabular}
+\end{center}
+
+\subsection{Wzory redukcyjne}
+
+\begin{center}
+\begin{tabular}{ c | c | c | c }
+	\multicolumn{2}{c|}{$ \sin -\alpha = -\sin \alpha $} &
+	\multicolumn{2}{c}{$ \cos -\alpha = \sin \alpha $} \\ \hline
+
+	$ \sin \left( \frac{\pi}{2} - \alpha \right) = \cos \alpha $ &
+	$ \sin \left( \frac{\pi}{2} + \alpha \right) = \cos \alpha $ &
+	$ \cos \left( \frac{\pi}{2} - \alpha \right) = \sin \alpha $ &
+	$ \cos \left( \frac{\pi}{2} + \alpha \right) = -\sin \alpha $ \\
+
+	$ \sin \left( \pi - \alpha \right) = \sin \alpha $ &
+	$ \sin \left( \pi + \alpha \right) = -\sin \alpha $ &
+	$ \cos \left( \pi - \alpha \right) = -\cos \alpha $ &
+	$ \cos \left( \pi + \alpha \right) = -\cos \alpha $ \\
+	
+	\hline
+
+	$ \sin \left( \frac{3\pi}{2} - \alpha \right) = -\cos \alpha $ &
+	$ \sin \left( \frac{3\pi}{2} + \alpha \right) = -\cos \alpha $ &
+	$ \cos \left( \frac{3\pi}{2} - \alpha \right) = -\sin \alpha $ &
+	$ \cos \left( \frac{3\pi}{2} + \alpha \right) = \sin \alpha $ \\
+
+	$ \sin \left( 2\pi - \alpha \right) = -\sin \alpha $ &
+	$ \sin \left( 2\pi + \alpha \right) = \sin \alpha $ &
+	$ \cos \left( 2\pi - \alpha \right) = \cos \alpha $ &
+	$ \cos \left( 2\pi + \alpha \right) = \cos \alpha $
+\end{tabular}
+\end{center}
 
 \section{Liczby zespolone}
 
