@@ -1,0 +1,52 @@
+\documentclass[a5paper,10pt]{article}
+\usepackage{pl}
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+
+\title{Trygonometria i liczby zespolone \\
+  \large Algorytmy kwantowe}
+\date{2021-02-27}
+\author{Robert Bendun}
+
+\newcommand{\mi}{\mathrm{i}}
+
+\begin{document}
+
+\maketitle
+
+\section{Trygonometria}
+
+\section{Liczby zespolone}
+
+\subsection{Postać algebraiczna}
+\begin{description}
+	\item $ \alpha \pm \beta = \left( a + b\mi \right) \pm \left( c + d\mi \right) 
+	= \left( a \pm c \right) + \left( b \pm d \right)\mi$
+	\item $ \alpha\beta = \left( a + b\mi \right) \left( c + d\mi \right) 
+	= \left( ac - bd \right) + \left( bc + ad \right)\mi$
+	\item $ \frac{\alpha}{\beta} = \frac{a + b\mi}{c + d\mi} = \frac{(ac + bd) + (bc - ad)\mi}{c^2 + d^2} $
+	\item[Norma] $ |\alpha| = |a + b\mi| = \sqrt{a^2 + b^2} $
+	\item[Sprzężenie] $ \overline{a + \mi b} = a - b\mi $
+	\item $ \alpha\overline{\alpha} = (a + b\mi)(a - b\mi) = a^2 + b^2 = |\alpha|^2 $
+\end{description}
+
+\subsection{Postać trygonometryczna}
+
+$$ z = a + b\mi = |z|(\cos\rho + \mi\sin\rho) $$
+
+\begin{description}
+
+\item $ xy = |x|(\cos \alpha + \mi\sin\alpha) \times |y|(\cos \beta + \mi\sin\beta) =
+	|x||y|\left[\cos(\alpha + \beta) + \mi\sin(\alpha+\beta)\right]$
+
+\item[Wzór de Moivre'a] $ z^n = |z|^n\left(\cos(n\rho) + \mi\sin(n\rho)\right) $
+
+\item[Pierwiastki] $ \sqrt[n]{ z } = \left\{ \sqrt[n]{|z|} \left(\cos \frac{\rho + 2k\pi}{n} + \mi\sin \frac{\rho + 2k\pi}{n} \right) \mid k = 0, 1, 2, ..., n-1  \right\} $
+
+\end{description}
+
+
+\end{document}
