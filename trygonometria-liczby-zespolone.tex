@@ -7,18 +7,28 @@
 \usepackage{gensymb}
 \usepackage{polski}
 \usepackage{multirow}
+\usepackage{multicol}
 
-\title{Trygonometria i liczby zespolone \\ \large Algorytmy kwantowe}
+\setlength{\multicolsep}{0pt}
+
+\usepackage{titlesec}
+\titleformat{\section}   {\normalfont\Large\bfseries}{}{0em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0em}{}
+
+\title{\textbf{Algorytmy kwantowe}: trygonometria i liczby zespolone}
 \date{2021-02-27}
-\author{Robert Bendun}
+\author{Robert Bendun (\texttt{robert@bendun.cc})}
 
-\newcommand{\mi}{\mathrm{i}}
-
+\newcommand{\mi}{{i\mkern1mu}}
 \renewcommand{\arraystretch}{1.5}
 
 \begin{document}
 
-\maketitle
+\begin{center}
+\makeatletter
+{\Large \@title} \\ \@date, \@author \\
+\makeatother
+\end{center}
 
 \section{Trygonometria}
 
@@ -64,9 +74,22 @@
 \end{tabular}
 \end{center}
 
+\subsection{Tożsamości}
+
+\begin{multicols}{2}
+\begin{description}
+	\item $ \sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta $
+	\item $ \cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta $
+	\item $ \sin2\alpha = 2\sin\alpha\cos\alpha $
+	\item $ \cos2\alpha = 2\cos^2\alpha - 1 $
+\end{description}
+\end{multicols}
+
 \section{Liczby zespolone}
 
 \subsection{Postać algebraiczna}
+
+\begin{multicols}{2}
 \begin{description}
 	\item $ \alpha \pm \beta = \left( a + b\mi \right) \pm \left( c + d\mi \right) 
 	= \left( a \pm c \right) + \left( b \pm d \right)\mi$
@@ -77,6 +100,7 @@
 	\item[Sprzężenie] $ \overline{a + \mi b} = a - b\mi $
 	\item $ \alpha\overline{\alpha} = (a + b\mi)(a - b\mi) = a^2 + b^2 = |\alpha|^2 $
 \end{description}
+\end{multicols}
 
 \subsection{Postać trygonometryczna}
 
@@ -85,15 +109,20 @@ $ z = |z|\left( \frac{a}{|z|} + \frac{b}{|z|}\mi \right) $ ponieważ $ \sin\rho 
 $$ z = a + b\mi = |z|(\cos\rho + \mi\sin\rho) $$
 
 \begin{description}
-
 \item $ xy = |x|(\cos \alpha + \mi\sin\alpha) \times |y|(\cos \beta + \mi\sin\beta) =
 	|x||y|\left[\cos(\alpha + \beta) + \mi\sin(\alpha+\beta)\right]$
+
+\item $ \frac{x}{y} = |x|(\cos \alpha + \mi\sin\alpha) \div |y|(\cos \beta + \mi\sin\beta) =
+	\frac{|x|}{|y|}\left[\cos(\alpha - \beta) + \mi\sin(\alpha-\beta)\right]$
 
 \item[Wzór de Moivre'a] $ z^n = |z|^n\left(\cos(n\rho) + \mi\sin(n\rho)\right) $
 
 \item[Pierwiastki] $ \sqrt[n]{ z } = \left\{ \sqrt[n]{|z|} \left(\cos \frac{\rho + 2k\pi}{n} + \mi\sin \frac{\rho + 2k\pi}{n} \right) \mid k = 0, 1, 2, ..., n-1  \right\} $
 
+\item[Wzór Eulera] $ e^{\theta\mi} = \cos\theta + \mi\sin\theta $
+
 \end{description}
 
-
+	$$ \sin\theta = \frac{e^{\mi\theta} - e^{-\mi\theta}}{2\mi} \quad\quad\quad 
+	\cos\theta = \frac{e^{\mi\theta} + e^{-\mi\theta}}{2\mi} $$
 \end{document}
