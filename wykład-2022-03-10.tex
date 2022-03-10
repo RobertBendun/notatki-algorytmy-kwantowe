@@ -1,0 +1,124 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{polski}
+
+\newcommand\CC{\mathbb{C}}
+
+\begin{document}
+
+\section{Iloczyn tensorowy macierzy}
+
+$$
+\begin{aligned}
+A = [ a_{i,j} ] \in M_{r x s}(\CC) \\
+B = [ b_{i,j} ] \in M_{t x u}(\CC)
+\end{aligned}
+$$
+
+iloczynem tensorowym macierzy $A$ i $B$ nazywamy macierz $ A \otimes B = M_{rt \times su}(\CC) $
+
+
+$$
+A \otimes B = \begin{bmatrix}
+	a_{11} & B a_{12} & a_{13} B & \dots & a_{1s} B \\
+	a_{21} & B a_{22} & a_{23} B & \dots & a_{2s} B \\
+	\vdots                                          \\
+	a_{r1} & B a_{r2} & a_{r3} B & \dots & a_{rs} B \\
+\end{bmatrix}
+$$
+
+Przykład:
+
+$$
+\begin{bmatrix}1 \\ 0\end{bmatrix} \otimes \begin{bmatrix}0 \\ 1\end{bmatrix} =
+	\begin{bmatrix}1 \begin{bmatrix} 0 \\ 1 \end{bmatrix} \\ 0 \begin{bmatrix} 0 \\ 1 \end{bmatrix} \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}
+$$
+
+\subsection{Własności iloczynu tensorowego}
+
+Iloczyn tensorowy tworzy półgrupę.
+
+\begin{description}
+	\item $ A \otimes (B + C) = A \otimes B + A \otimes C $
+	\item $ (B+C) \otimes A = B \otimes A + C \otimes A $
+	\item $ A \otimes (B \otimes C) = (A \otimes B) \otimes C $
+	\item $ (\alpha A) \otimes B = A \otimes (\alpha B) = \alpha (A \otimes B) $
+	\item $ (A \otimes B)(C \otimes D) = AC \otimes BD $
+\end{description}
+
+\section{Postulaty mechaniki kwantowej}
+
+
+	\subsection{Postulat 1, postulat układu}
+	Każdemu układowi kwantowemu można przypisać skończenie wymiarową $\CC^n$ przestrzeń Hilberta, w której określa się kwantowo-mechaniczną teorię tego układu. Układ ten jest opisywany przez unormowany wektor stanu. (Jeden stan wyrażony jest przez jeden konkretny wektor).
+
+		$$ |Y\rangle = \alpha |0\rangle + \beta| 1\rangle \in \CC^2 $$ dla $ |\alpha|^2 + |\beta|^2 = 1 $
+
+	\subsection{Postulat 2, postulat ewolucji układu} \label{postulat2}
+	Ewolucja układu kwantowego $|\psi\rangle$ jest opisywana przez przekształcenia unitarne przestrzenii $\CC^2$. To znaczy, że wektor $|\psi\rangle$ w czasie $t_1$ jest związany z wektorem |Y'> w czasie $t_2$ operatorem unitarnym $U$.
+
+		$$ |\psi'\rangle = U|\psi\rangle $$
+
+		Algorytm kwantowy to sekwencja przekształceń unitarnych.
+
+	\subsection{Postulat 3, postulat iloczynu tensorowego} Jeżeli $\CC^n$ i $\CC^m$ są przestrzeniami stanów dwóch niezależnych i nierozróżnialnych układów kwantowych, to przestrzeń stanów obu tych układów branych jako całość jest iloczynem tensorowym tych przestrzeni.
+
+		$$
+	 |00\rangle = |0\rangle|0\rangle	= |0\rangle \otimes |0\rangle = \begin{bmatrix}1 \\ 0\end{bmatrix} \otimes \begin{bmatrix}1 \\ 0\end{bmatrix} = \begin{bmatrix}1 \\ 0 \\ 0 \\ 0\end{bmatrix}
+		$$
+
+		Dla kubitu $ |\psi\rangle \in \CC^4 $ mamy:
+		$$ |\psi\rangle = \alpha_1|00\rangle + \alpha_2|01\rangle + \alpha_3|10\rangle + \alpha_4|11\rangle $$ gdzie $ \sum_\alpha |\alpha|^2 = 1 $
+
+		Nie każdy stan można przedstawić jako iloczyn tensorowy np. $ \frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}} |11\rangle \in \CC^4 $. (jest to układ nierozkładalny, splątanie kwantowe)
+
+		$$
+		(\alpha_1 |0\rangle + \beta_1|1\rangle) \otimes (\alpha_2|0\rangle + \beta_2|1\rangle) =
+		(\alpha_1 |0\rangle + \beta_1|1\rangle) \otimes \alpha_2|0\rangle + (\alpha_1 |0\rangle + \beta_1|1\rangle) \otimes \beta_2|1\rangle = \alpha_1\alpha_2|00\rangle + \beta_1\alpha_2|10\rangle + \alpha_1\beta_2|01\rangle + \beta_1\beta_2|11\rangle
+		$$ wynika z tego układ równań (sprzeczny).
+		$$
+		\begin{aligned}
+			\alpha_1\alpha_2 & = \frac{1}{\sqrt{2}} \\
+			\beta_1\beta_2 & = \frac{1}{\sqrt{2}} \\
+			\beta_1\alpha_2 & = 0 \\
+			\alpha_2\beta_2 & = 0
+		\end{aligned}
+		$$
+
+	\subsection{Postulat 4, postulat pomiaru} Pomiar kwantowy w bazie obliczeniowej jest opisywany przez zbiór $\{ M_m \}$ (macierzy) (hermitowskie operatory projekcji). Operatory te działają w przypisanej przestrzenii stanów mierzonego układu. Indeks $m$ jest wynikiem pomiaru.
+
+		Jeśli $|\psi\rangle$ jest mierzonym stanem, to $p(m)$ - prawdopodobieństwo, że wynikiem pomiaru będzie $m$ wynosi $p(m) = \langle\psi M_m |\psi\rangle $, a stan $|\psi\rangle$ po pomiarze znajdzie się w stanie $$ |\psi'\rangle = \frac{M_m|\psi\rangle}{\sqrt{p(m)}} $$.
+
+		Przykład: Dla $|\psi\rangle = \frac{1}{\sqrt{2}} |0\rangle + \frac{1}{\sqrt{2}}|1\rangle$ mamy
+		$$ M_0 = |0\rangle \langle0| = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} $$
+		$$ M_1 = |1\rangle \langle1| = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} $$
+
+		Pomiar to	$ \{ M_0, M_1 \} $
+
+		$$ p(0) = \begin{bmatrix}  \frac{1}{\sqrt{2}} &  \frac{1}{\sqrt{2}} \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}  \end{bmatrix} = \frac{1}{2}$$
+
+			$$ p(1) = \begin{bmatrix}  \frac{1}{\sqrt{2}} &  \frac{1}{\sqrt{2}} \end{bmatrix} \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}  \end{bmatrix} = \frac{1}{2} $$
+
+			$$ |\psi'\rangle = \frac{M_0|\psi\rangle}{\sqrt{\frac{1}{2}}} = 1|0\rangle $$
+
+		Dla kubitu: \begin{description}
+			\item[Pomiar $ p(0) = |\alpha|^2 $] tworzy $ |\psi'\rangle = \frac{\alpha}{|\alpha|}|0\rangle $
+			\item[Pomiar $ p(1) = |\beta|^2 $] tworzy $ |\psi'\rangle = \frac{\beta}{|\beta|}|1\rangle $
+		\end{description}
+
+\section{Bramki kwantowe}
+
+Przekształcenia unitarne z \ref{postulat2} to bramki algorytmów kwantowych.
+
+\subsection{Bramka hadamarda}
+
+Rysunek
+
+\subsection{Bramka kontrolowanej negacji}
+
+Rysunek
+
+\end{document}
